@@ -14,6 +14,11 @@ internal class GetDrillBlockByIdQueryHandler : IRequestHandler<GetDrillBlockById
     private readonly IAppDbContext dbContext;
     private readonly IMapper mapper;
 
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    /// <param name="dbContext">Data base context.</param>
+    /// <param name="mapper">Mapper.</param>
     public GetDrillBlockByIdQueryHandler(IAppDbContext dbContext, IMapper mapper)
     {
         this.dbContext = dbContext;
@@ -25,10 +30,6 @@ internal class GetDrillBlockByIdQueryHandler : IRequestHandler<GetDrillBlockById
     {
         var drillBlock =
             await dbContext.DrillBlocks.FirstOrDefaultAsync(block => block.Id == request.DrillBlockId, cancellationToken);
-        if (drillBlock != null)
-        {
-            return mapper.Map<DrillBlockDto>(drillBlock);
-        }
-        throw new Exception("Not found drill block by this id.");
+        return mapper.Map<DrillBlockDto>(drillBlock);
     }
 }

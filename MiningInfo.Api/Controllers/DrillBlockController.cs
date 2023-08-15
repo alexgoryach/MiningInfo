@@ -1,7 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MiningInfo.Usecases.DrillBlock.AddDrillBlock;
+using MiningInfo.Usecases.DrillBlock.DeleteDrillBlockById;
 using MiningInfo.Usecases.DrillBlock.GetDrillBlockById;
+using MiningInfo.Usecases.DrillBlock.GetDrillBlocks;
+using MiningInfo.Usecases.DrillBlock.UpdateDrillBlockById;
 using MiningInfo.Usecases.Dtos.DrillBlock;
 
 namespace MiningInfo.Api.Controllers;
@@ -43,4 +46,32 @@ public class DrillBlockController : ControllerBase
     [HttpPost]
     public async Task<Guid> AddDrillBlock(AddDrillBlockCommand command, CancellationToken cancellationToken)
         => await mediator.Send(command, cancellationToken);
+    
+    /// <summary>
+    /// Get all drill blocks with minimum info.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>Drill block DTOs with minimum.</returns>
+    [HttpGet]
+    public async Task<List<DrillBlockLightDto>> GetDrillBlocks(CancellationToken cancellationToken)
+        => await mediator.Send(new GetDrillBlocksQuery(), cancellationToken);
+
+    /// <summary>
+    /// Update drill block by id.
+    /// </summary>
+    /// <param name="drillBlockId">Drill block identifier.</param>
+    /// <param name="command">Update drill block command.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    [HttpPut("{drillBlockId}")]
+    public async Task UpdateDrillBlockById(Guid drillBlockId, UpdateDrillBlockByIdCommand command, CancellationToken cancellationToken)
+        => await mediator.Send(command with { Id = drillBlockId }, cancellationToken);
+
+    /// <summary>
+    /// Delete drill block by id.
+    /// </summary>
+    /// <param name="drillBlockId">Drill block identifier.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    [HttpDelete("{drillBlockId}")]
+    public async Task DeleteDrillBlockById(Guid drillBlockId, CancellationToken cancellationToken)
+        => await mediator.Send(new DeleteDrillBlockByIdCommand(drillBlockId), cancellationToken);
 }

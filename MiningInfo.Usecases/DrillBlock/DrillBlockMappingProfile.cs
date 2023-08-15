@@ -16,5 +16,6 @@ public class DrillBlockMappingProfile : Profile
     {
         CreateMap<AddDrillBlockCommand, Domain.Entities.Drill.DrillBlock>();
         CreateMap<Domain.Entities.Drill.DrillBlock, DrillBlockDto>();
+        CreateMap<Domain.Entities.Drill.DrillBlock, DrillBlockLightDto>();
     }
 }
