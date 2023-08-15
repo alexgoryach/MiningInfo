@@ -7,6 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="11.0.0" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
@@ -14,6 +16,8 @@
     <ItemGroup>
       <ProjectReference Include="..\MiningInfo.Infrastructure.Abstraction\MiningInfo.Infrastructure.Abstraction.csproj" />
       <ProjectReference Include="..\MiningInfo.Infrastructure.DataAccess\MiningInfo.Infrastructure.DataAccess.csproj" />
+      <ProjectReference Include="..\MiningInfo.Usecases.Dtos\MiningInfo.Usecases.Dtos.csproj" />
+      <ProjectReference Include="..\MiningInfo.Usecases\MiningInfo.Usecases.csproj" />
     </ItemGroup>
 
 </Project>

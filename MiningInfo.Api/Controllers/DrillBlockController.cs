@@ -1,5 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using MiningInfo.Usecases.DrillBlock.AddDrillBlock;
+using MiningInfo.Usecases.DrillBlock.GetDrillBlockById;
+using MiningInfo.Usecases.Dtos.DrillBlock;
 
 namespace MiningInfo.Api.Controllers;
 
@@ -8,7 +11,6 @@ namespace MiningInfo.Api.Controllers;
 /// </summary>
 [ApiController]
 [Route("api/drillblock")]
-[ApiExplorerSettings(GroupName = "Drill")]
 public class DrillBlockController : ControllerBase
 {
     private readonly IMediator mediator;
@@ -23,20 +25,22 @@ public class DrillBlockController : ControllerBase
     }
 
     /// <summary>
-    /// Get all tools request.
+    /// Get drill block by id.
     /// </summary>
-    /// <returns>List of tools.</returns>
-    [HttpGet]
-    public async void Get()
-    {
-    }
-    
+    /// <param name="drillBlockId">Drill block identifier.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>Drill block DTO.</returns>
+    [HttpGet("{drillBlockId}")]
+    public async Task<DrillBlockDto> GetDrillBlockById(Guid drillBlockId, CancellationToken cancellationToken)
+        => await mediator.Send(new GetDrillBlockByIdQuery(drillBlockId), cancellationToken);
+
     /// <summary>
-    /// Add tool to database.
+    /// Add drill block.
     /// </summary>
-    /// <returns>Id of created tool.</returns>
+    /// <param name="command">Add drill block command.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>Identifier of new drill block.</returns>
     [HttpPost]
-    public async void Post()
-    {
-    }
+    public async Task<Guid> AddDrillBlock(AddDrillBlockCommand command, CancellationToken cancellationToken)
+        => await mediator.Send(command, cancellationToken);
 }

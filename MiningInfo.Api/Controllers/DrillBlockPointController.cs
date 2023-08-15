@@ -8,7 +8,6 @@ namespace MiningInfo.Api.Controllers;
 /// </summary>
 [ApiController]
 [Route("api/drillblockpoint")]
-[ApiExplorerSettings(GroupName = "Drill")]
 public class DrillBlockPointController : ControllerBase
 {
     private readonly IMediator mediator;

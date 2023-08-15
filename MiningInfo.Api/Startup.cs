@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MiningInfo.Api.DependencyModules.AutoMapper;
 using MiningInfo.Api.DependencyModules.Database;
 using MiningInfo.Api.DependencyModules.MediatR;
 using MiningInfo.Infrastructure.DataAccess;
@@ -35,6 +36,7 @@ public class Startup
         // Register dependencies.
         DatabaseModule.Register(services);
         MediatRModule.Register(services);
+        AutoMapperModule.Register(services);
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
@@ -54,7 +56,6 @@ public class Startup
         }
 
         app.UseRouting();
-        app.UseHttpsRedirection();
 
         app.UseAuthentication();
         app.UseAuthorization();

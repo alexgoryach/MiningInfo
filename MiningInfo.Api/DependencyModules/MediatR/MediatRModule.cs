@@ -1,5 +1,5 @@
-﻿using System.Reflection;
-using MediatR;
+﻿using MediatR;
+using MiningInfo.Usecases.DrillBlock.AddDrillBlock;
 
 namespace MiningInfo.Api.DependencyModules.MediatR;
 
@@ -9,11 +9,11 @@ namespace MiningInfo.Api.DependencyModules.MediatR;
 internal class MediatRModule
 {
     /// <summary>
-    /// Register database context.
+    /// Register MediatR.
     /// </summary>
     /// <param name="services">Service collection.</param>
     public static void Register(IServiceCollection services)
     {
-        services.AddMediatR(Assembly.GetExecutingAssembly());
+        services.AddMediatR(typeof(AddDrillBlockCommand).Assembly);
     }
 }

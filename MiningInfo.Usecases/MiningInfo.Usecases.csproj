@@ -7,10 +7,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="DrillBlock" />
       <Folder Include="DrillBlockPoint" />
       <Folder Include="Hole" />
       <Folder Include="HolePoint" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MiningInfo.Infrastructure.Abstraction\MiningInfo.Infrastructure.Abstraction.csproj" />
+      <ProjectReference Include="..\MiningInfo.Usecases.Dtos\MiningInfo.Usecases.Dtos.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="11.0.0" />
+      <PackageReference Include="MediatR" Version="11.1.0" />
     </ItemGroup>
 
 </Project>

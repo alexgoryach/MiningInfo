@@ -8,7 +8,6 @@ namespace MiningInfo.Api.Controllers;
 /// </summary>
 [ApiController]
 [Route("api/holepoint")]
-[ApiExplorerSettings(GroupName = "Hole")]
 public class HolePointController : ControllerBase
 {
     private readonly IMediator mediator;
