@@ -4,6 +4,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningInfo.Api", "MiningInf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationLayer", "ApplicationLayer", "{4FF2323D-C742-45DF-8E97-4EB54A6CF50C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreLayer", "CoreLayer", "{F3182494-2EA9-4C3B-975B-D1AA33F06453}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InfrastructureLayer", "InfrastructureLayer", "{5A512993-0C50-4305-94C4-890B8EE7F5A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningInfo.Domain", "MiningInfo.Domain\MiningInfo.Domain.csproj", "{6F8E5887-0FF5-4355-9C28-98EC92A29325}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningInfo.Infrastructure.DataAccess", "MiningInfo.Infrastructure.DataAccess\MiningInfo.Infrastructure.DataAccess.csproj", "{E8A8A55A-2569-4339-9D45-6820092006B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningInfo.Infrastructure.Abstraction", "MiningInfo.Infrastructure.Abstraction\MiningInfo.Infrastructure.Abstraction.csproj", "{72584F1C-3925-4CCB-9833-7167EE9FA9C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiningInfo.Usecases", "MiningInfo.Usecases\MiningInfo.Usecases.csproj", "{C79E4712-0D64-44D3-B4CF-93A32D5C5FD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,8 +26,28 @@ Global
 		{61C6655C-8A75-4E4B-BFF3-D85DD91B77F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61C6655C-8A75-4E4B-BFF3-D85DD91B77F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61C6655C-8A75-4E4B-BFF3-D85DD91B77F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F8E5887-0FF5-4355-9C28-98EC92A29325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F8E5887-0FF5-4355-9C28-98EC92A29325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F8E5887-0FF5-4355-9C28-98EC92A29325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F8E5887-0FF5-4355-9C28-98EC92A29325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A8A55A-2569-4339-9D45-6820092006B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A8A55A-2569-4339-9D45-6820092006B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A8A55A-2569-4339-9D45-6820092006B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A8A55A-2569-4339-9D45-6820092006B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72584F1C-3925-4CCB-9833-7167EE9FA9C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72584F1C-3925-4CCB-9833-7167EE9FA9C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72584F1C-3925-4CCB-9833-7167EE9FA9C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72584F1C-3925-4CCB-9833-7167EE9FA9C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C79E4712-0D64-44D3-B4CF-93A32D5C5FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C79E4712-0D64-44D3-B4CF-93A32D5C5FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C79E4712-0D64-44D3-B4CF-93A32D5C5FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C79E4712-0D64-44D3-B4CF-93A32D5C5FD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{61C6655C-8A75-4E4B-BFF3-D85DD91B77F0} = {4FF2323D-C742-45DF-8E97-4EB54A6CF50C}
+		{6F8E5887-0FF5-4355-9C28-98EC92A29325} = {F3182494-2EA9-4C3B-975B-D1AA33F06453}
+		{E8A8A55A-2569-4339-9D45-6820092006B0} = {5A512993-0C50-4305-94C4-890B8EE7F5A3}
+		{72584F1C-3925-4CCB-9833-7167EE9FA9C4} = {5A512993-0C50-4305-94C4-890B8EE7F5A3}
+		{C79E4712-0D64-44D3-B4CF-93A32D5C5FD7} = {F3182494-2EA9-4C3B-975B-D1AA33F06453}
 	EndGlobalSection
 EndGlobal

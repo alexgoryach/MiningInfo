@@ -1,5 +1,13 @@
-﻿namespace MiningInfo.Api;
+﻿using Microsoft.EntityFrameworkCore;
+using MiningInfo.Api.DependencyModules.Database;
+using MiningInfo.Api.DependencyModules.MediatR;
+using MiningInfo.Infrastructure.DataAccess;
 
+namespace MiningInfo.Api;
+
+/// <summary>
+/// Application startup with configurations.
+/// </summary>
 public class Startup
 {
     private readonly IConfiguration configuration;
@@ -13,18 +21,32 @@ public class Startup
         this.configuration = configuration;
     }
 
+    /// <summary>
+    /// Configure services.
+    /// </summary>
+    /// <param name="services">Services collection.</param>
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
+        
+        services.AddDbContext<AppDbContext>(opt =>
+            opt.UseNpgsql(configuration.GetConnectionString("PostgreSQLConnection")));
 
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        // Register dependencies.
+        DatabaseModule.Register(services);
+        MediatRModule.Register(services);
+
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
     }
     
+    /// <summary>
+    /// Application configure.
+    /// </summary>
+    /// <param name="app">Application.</param>
+    /// <param name="env">Host environment.</param>
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        // Configure the HTTP request pipeline.
         if (env.IsDevelopment())
         {
             app.UseSwagger();
