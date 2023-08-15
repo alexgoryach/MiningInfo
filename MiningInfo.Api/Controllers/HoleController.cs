@@ -1,5 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using MiningInfo.Usecases.Dtos.Hole;
+using MiningInfo.Usecases.Hole.AddHole;
+using MiningInfo.Usecases.Hole.DeleteHoleById;
+using MiningInfo.Usecases.Hole.GetHoles;
+using MiningInfo.Usecases.Hole.UpdateHoleById;
 
 namespace MiningInfo.Api.Controllers;
 
@@ -26,16 +31,34 @@ public class HoleController : ControllerBase
     /// </summary>
     /// <returns>List of tools.</returns>
     [HttpGet]
-    public async void Get()
-    {
-    }
+    public async Task<List<HoleDto>> GetHoles([FromQuery] GetHolesQuery query, CancellationToken cancellationToken)
+        => await mediator.Send(query, cancellationToken);
+
+    /// <summary>
+    /// Add hole.
+    /// </summary>
+    /// <param name="command">Add hole command.</param>
+    /// <param name="cancellationToken"></param>
+    [HttpPost]
+    public async Task<Guid> AddHole (AddHoleCommand command, CancellationToken cancellationToken)
+        => await mediator.Send(command, cancellationToken);
+
+    /// <summary>
+    /// Update hole by id.
+    /// </summary>
+    /// <param name="holeId">Hole identifier.</param>
+    /// <param name="command">Command.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    [HttpPut("{holeId}")]
+    public async Task UpdateHoleById(Guid holeId, UpdateHoleByIdCommand command, CancellationToken cancellationToken)
+        => await mediator.Send(command with { Id = holeId }, cancellationToken);
     
     /// <summary>
-    /// Add tool to database.
+    /// Delete hole by id.
     /// </summary>
-    /// <returns>Id of created tool.</returns>
-    [HttpPost]
-    public async void Post()
-    {
-    }
+    /// <param name="holeId">Hole id.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    [HttpDelete("{holeId}")]
+    public async Task DeleteHoleById(Guid holeId, CancellationToken cancellationToken)
+        => await mediator.Send(new DeleteHoleByIdCommand(holeId), cancellationToken);
 }
