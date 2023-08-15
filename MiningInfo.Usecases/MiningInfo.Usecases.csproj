@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="HolePoint" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\MiningInfo.Infrastructure.Abstraction\MiningInfo.Infrastructure.Abstraction.csproj" />
       <ProjectReference Include="..\MiningInfo.Usecases.Dtos\MiningInfo.Usecases.Dtos.csproj" />
     </ItemGroup>

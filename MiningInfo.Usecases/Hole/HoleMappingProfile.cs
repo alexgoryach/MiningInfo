@@ -17,5 +17,6 @@ public class HoleMappingProfile : Profile
         CreateMap<AddHoleCommand, Domain.Entities.Hole.Hole>();
         CreateMap<Domain.Entities.Hole.Hole, HoleDto>()
             .ForMember(dest => dest.DrillBlock, opt => opt.MapFrom(src => src.DrillBlock));
+        CreateMap<Domain.Entities.Hole.Hole, HoleLightDto>();
     }
 }
